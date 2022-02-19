@@ -7,7 +7,8 @@ import java.util.concurrent.TimeUnit;
 public class Utils {
     //Constants
     final static String CHROME_DRIVER_LOCATION = "chromedriver.exe";
-    final static String BASE_URL = "";
+    final static String BASE_URL = "file:///C:/Users/carla/Desktop/Testing-Env-master/index.html";
+    final static String BASE_URL_2 = "file:///C:/Users/carla/Desktop/Testing-Env-master/routes/enrollment.html";
 
     //Waits for an element to load for a specified period of time.
     public static void waitForElementToLoad(int timeUnit) {
