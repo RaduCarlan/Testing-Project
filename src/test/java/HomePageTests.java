@@ -1,5 +1,6 @@
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.support.FindBy;
 import org.testng.Assert;
 import org.testng.annotations.AfterSuite;
 import org.testng.annotations.BeforeSuite;
@@ -25,7 +26,7 @@ public class HomePageTests {
         Assert.assertEquals(textForm.getTextSign(), Constants.SIGN_UP_HEADER);
     }
 
-    @Test(testName = "Select email tab")
+    @Test(testName = "Select email tab and enter an email address")
     public void SelectTab() {
         driver.get(Utils.BASE_URL);
         Homepage webForm = new Homepage(driver);
@@ -33,7 +34,7 @@ public class HomePageTests {
         Utils.waitForElementToLoad(3);
     }
 
-    @Test(testName = "Click Submit button")
+    @Test(testName = "Select email tab and click Submit button with no email address")
     public void ClickSubmit() {
         driver.get(Utils.BASE_URL);
         Homepage webForm = new Homepage(driver);
@@ -41,16 +42,18 @@ public class HomePageTests {
         Utils.waitForElementToLoad(3);
     }
 
-    @Test(testName = "Select email tab and submit email")
+    @Test(testName = "Select email tab and submit a valid email")
     public void SelectTabAndInsert() {
         driver.get(Utils.BASE_URL);
         Homepage webForm = new Homepage(driver);
         webForm.SelectEmail_tab();
         webForm.AccesEmail_tab();
-        Utils.waitForElementToLoad(2);
+        Utils.waitForElementToLoad(1);
+        driver.switchTo().alert().accept();
+        Utils.waitForElementToLoad(1);
     }
 
-    @Test(testName = "Click next button on Enrollment page")
+    @Test(testName = "Click next button on Enrollment page with no data")
     public void ClickNextEnrollment() {
         driver.get(Utils.BASE_URL);
         Homepage webForm = new Homepage(driver);
@@ -62,8 +65,8 @@ public class HomePageTests {
         Utils.waitForElementToLoad(2);
     }
 
-    @Test(testName = "Complete all data on Enrollment all page until Payment Information")
-    public void CompleteEnrollmentPg1() {
+    @Test(testName = "Complete all data on Enrollment pages with correct information")
+    public void CompleteEnrollmentAll() {
         driver.get(Utils.BASE_URL);
         Homepage webForm = new Homepage(driver);
         Utils.waitForElementToLoad(1);
@@ -99,7 +102,7 @@ public class HomePageTests {
         webForm3.SelectSoftwareTesting();
         Utils.waitForElementToLoad(1);
         webForm3.nextButton3();
-        Utils.waitForElementToLoad(2);
+        Utils.waitForElementToLoad(1);
 
         Payment_info webForm4 = new Payment_info(driver);
         webForm4.CardHolderName(Constants.VALID_CARD_HOLDER_INPUT);
@@ -115,23 +118,75 @@ public class HomePageTests {
         webForm4.YearSelect();
         Utils.waitForElementToLoad(1);
         webForm4.ClickRandom();
+        Utils.waitForElementToLoad(1);
+        webForm4.NextButton3();
         Utils.waitForElementToLoad(2);
     }
 
-    @Test(testName = "Verification Payment Information page")
-    public void CompletePayment(){
-        driver.get(Utils.BASE_URL);
-        NavigateToPage navigation = new NavigateToPage(driver);
-        navigation.NavigateToPage(NavigateToPage.Pages.Payment_Information);
-        Utils.waitForElementToLoad(5);
-    }
-
-    @Test(testName = "Verification Payment Information page")
+    @Test(testName = "Verification all enrollment pages")
     public void CompleteAllPagesEnrollment(){
         driver.get(Utils.BASE_URL);
         NavigateToPage navigation = new NavigateToPage(driver);
         navigation.NavigateToPage(NavigateToPage.Pages.Success);
-        Utils.waitForElementToLoad(5);
+        Utils.waitForElementToLoad(3);
+    }
+
+    @Test(testName = "Verification 'Read More' buttons from Hybrid and return button")
+    public void ClickHybridButton(){
+        driver.get(Utils.BASE_URL);
+        Homepage webForm = new Homepage(driver);
+        webForm.ClickHybridButton();
+        Utils.waitForElementToLoad(1);
+
+        Hybrid webForm5 = new Hybrid(driver);
+        webForm5.ClickReturnButton();
+        Utils.waitForElementToLoad(1);
+    }
+
+    @Test(testName = "Verification the 'go to top' button")
+    public void ClickGoUpButton() {
+        driver.get(Utils.BASE_URL);
+        Homepage webForm = new Homepage(driver);
+        webForm.ClickGoTop();
+        Utils.waitForElementToLoad(1);
+    }
+
+    @Test(testName = "Select Read More from Learn The Fundamentals")
+    public void ClickFundamentals() {
+        driver.get(Utils.BASE_URL);
+        Homepage webForm = new Homepage(driver);
+        webForm.ClickFundamentals();
+        Utils.waitForElementToLoad(1);
+    }
+
+    @Test(testName = "Select Read More from Learn Selenium")
+    public void ClickSelenium() {
+        driver.get(Utils.BASE_URL);
+        Homepage webForm = new Homepage(driver);
+        webForm.ClickSelenium();
+        Utils.waitForElementToLoad(1);
+
+        Selenium selenium = new Selenium(driver);
+        Assert.assertEquals(selenium.getTextSelenium(), Constants.SELENIUM_PAGE);
+        Utils.waitForElementToLoad(1);
+    }
+
+    @Test(testName = "Verify Jane facebook button")
+    public void JaneFacebook() {
+        driver.get(Utils.BASE_URL);
+        Homepage webForm = new Homepage(driver);
+        webForm.ClickJaneFacebook();
+        Utils.waitForElementToLoad(1);
+        Assert.assertEquals(driver.getTitle(), "Facebook - Log In or Sign Up");
+    }
+
+    @Test(testName = "Verify Sara instagram button")
+    public void SaraInstagram() {
+        driver.get(Utils.BASE_URL);
+        Homepage webForm = new Homepage(driver);
+        webForm.ClickSaraInstagram();
+        Utils.waitForElementToLoad(1);
+        Assert.assertEquals(driver.getTitle(), "Instagram");
     }
 
     @AfterSuite

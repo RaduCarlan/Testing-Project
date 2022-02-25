@@ -1,6 +1,7 @@
 public class Constants {
     // This is a class where you will keep all of your test related constants.
     public static String SIGN_UP_HEADER = "Sign up for the Software Testing course";
+    public static String SELENIUM_PAGE = "Learn Selenium page";
 
     // Personal information page
     public static String VALID_FIRST_NAME_INPUT = "Radu";
