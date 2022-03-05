@@ -34,6 +34,7 @@ public class EnrollmentPageTests {
         Enrollment clickForm = new Enrollment(driver);
         clickForm.nextButton();
         Utils.waitForElementToLoad(2);
+        Assert.assertEquals(clickForm.getTextSign(), Constants.SIGN_UP_HEADER);
     }
 
     @Test(testName = "Complete all data on Enrollment pages with correct information")
@@ -92,7 +93,10 @@ public class EnrollmentPageTests {
         Utils.waitForElementToLoad(1);
         webForm4.NextButton3();
         Utils.waitForElementToLoad(2);
-    }
+
+        Success webForm5 = new Success(driver);
+        Assert.assertEquals(webForm5.SuccessText(), Constants.SUCCESS_TEXT);
+        }
 
     @Test(testName = "Verification all enrollment pages")
     public void CompleteAllPagesEnrollment(){
@@ -100,6 +104,9 @@ public class EnrollmentPageTests {
         NavigateToPage navigation = new NavigateToPage(driver);
         navigation.NavigateToPage(NavigateToPage.Pages.Success);
         Utils.waitForElementToLoad(3);
+
+        Homepage webForm = new Homepage(driver);
+        Assert.assertEquals(webForm.HomePageText(), Constants.HOME_PAGE_TEXT);
     }
 
     @AfterSuite

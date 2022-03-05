@@ -42,7 +42,7 @@ public class HomePageTests {
     public void SelectTabAndInsert() {
         driver.get(Utils.BASE_URL);
         Homepage webForm = new Homepage(driver);
-        for (int i = 0; i< 3; i++) {
+        for (int i = 0; i< 2; i++) {
             webForm.SelectEmail_tab();
             webForm.AccesEmail_tab();
             Utils.waitForElementToLoad(1);

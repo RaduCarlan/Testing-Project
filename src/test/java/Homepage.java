@@ -42,12 +42,12 @@ public class Homepage extends PageObject {
 
     @FindBy(xpath = "/html/body/section[7]/div/div/div[2]/div/div/a[2]/i")
     private WebElement JaneFacebook;
-    @FindBy(xpath = "/html/body/section[7]/div/div/div[2]/div/div/h3")
+    @FindBy(xpath = "/html/body/section[7]/div/h2")
     private WebElement JaneDoeText;
 
     @FindBy(xpath = "/html/body/section[7]/div/div/div[4]/div/div/a[4]/i")
     private WebElement SaraInstagram;
-    @FindBy(xpath = "/html/body/section[7]/div/div/div[4]/div/div/h3")
+    @FindBy(xpath = "/html/body/section[7]/div/h2")
     private WebElement SaraSmithText;
 
     @FindBy(xpath = "/html/body/section[6]/div/div/div[3]/h3/button")
@@ -77,6 +77,7 @@ public class Homepage extends PageObject {
     private WebElement FreqAskedText;
     @FindBy(xpath = "/html/body/section[4]/div/div/div[2]/h2")
     private WebElement WhatLearnText;
+
 
 
     public Homepage(WebDriver driver) {
@@ -140,6 +141,7 @@ public class Homepage extends PageObject {
         this.QuestionsTabOpen.click();
         Utils.waitForElementToLoad(1);
         this.QuestionsTabClose.click();
+        Utils.waitForElementToLoad(1);
     }
 
     public String VerifyEnrollmentEmail() {

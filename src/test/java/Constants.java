@@ -34,6 +34,9 @@ public class Constants {
     public static String VALID_CARD_NUMBER_INPUT = "1234-1234-5678-5678";
     public static String VALID_CVC_INPUT = "098";
 
+    // Success page
+    public static String SUCCESS_TEXT = "Success!";
+
     // For testing all enrollment pages
     public static String VALID_TEST_TEXT_INPUT = "X";
     public static String VALID_TEST_NUMBER_INPUT = "1";
