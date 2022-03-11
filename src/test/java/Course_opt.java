@@ -10,6 +10,8 @@ public class Course_opt extends PageObject {
     @FindBy(xpath = "/html/body/div/div/section/div/form/div[3]/button[2]")
     private WebElement nextButton3;
 
+    @FindBy(xpath = "/html/body/div/div/section/div/form/div[3]/button[1]")
+    private WebElement PrevButtonCourse;
 
 
     public Course_opt (WebDriver driver) { super(driver); }
@@ -17,6 +19,8 @@ public class Course_opt extends PageObject {
     public void SelectSoftwareTesting() { this.SelectSoftwareTesting.click(); }
 
     public void nextButton3() { this.nextButton3.click(); }
+
+    public void PrevButtonCourse() { this.PrevButtonCourse.click(); }
 
 
 }

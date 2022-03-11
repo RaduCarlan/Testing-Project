@@ -4,6 +4,9 @@ import org.openqa.selenium.support.FindBy;
 
 public class Contact_Info extends PageObject {
 
+    @FindBy(xpath = "/html/body/div/div/section/div/form/div[2]/button[1]")
+    private WebElement PrevButtonContact;
+
     @FindBy(xpath = "/html/body/div/div/section/div/form/div[2]/button[2]")
     private WebElement nextButton2;
 
@@ -26,6 +29,8 @@ public class Contact_Info extends PageObject {
     public Contact_Info (WebDriver driver) { super(driver); }
 
     public void nextButton2() { this.nextButton2.click(); }
+
+    public void PrevButtonContact() { this.PrevButtonContact.click(); }
 
     public void SelectEmail(String input) { this.SelectEmail.sendKeys(input); }
 

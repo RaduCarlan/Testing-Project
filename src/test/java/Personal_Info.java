@@ -25,6 +25,7 @@ public class Personal_Info extends PageObject {
 
     public Personal_Info (WebDriver driver) { super(driver); }
 
+
     public void nextButton() { this.nextButton.click(); }
 
     public void SelectFirstName(String input) {

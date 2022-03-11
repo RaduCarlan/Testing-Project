@@ -42,7 +42,7 @@ public class HomePageTests {
     public void SelectTabAndInsert() {
         driver.get(Utils.BASE_URL);
         Homepage webForm = new Homepage(driver);
-        for (int i = 0; i< 2; i++) {
+        for (int i = 0; i< 3; i++) {
             webForm.SelectEmail_tab();
             webForm.AccesEmail_tab();
             Utils.waitForElementToLoad(1);
@@ -51,13 +51,13 @@ public class HomePageTests {
         }
     }
 
-    @Test(testName = "Verification 'Read More' buttons from Hybrid")
-    public void ClickHybridButton() {
+    @Test(testName = "Verification 'Read More' buttons from In Person")
+    public void ClickInPersonButton() {
         driver.get(Utils.BASE_URL);
         Homepage webForm = new Homepage(driver);
-        webForm.ClickHybridButton();
-        Hybrid h = new Hybrid(driver);
-        Assert.assertEquals(h.HybridPageText(), Constants.HYBRID_PAGE);
+        webForm.ClickInPersonButton();
+        InPerson h = new InPerson(driver);
+        Assert.assertEquals(h.InPersonText(), Constants.IN_PERSON_TEXT);
         Utils.waitForElementToLoad(1);
 
     }

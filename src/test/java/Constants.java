@@ -5,9 +5,13 @@ import java.util.Locale;
 public class Constants {
     // This is a class where you will keep all of your test related constants.
     public static String SIGN_UP_HEADER = "Sign up for the Software Testing course";
+    public static String PERSONAL_INFO_HEADER = "Personal information";
+    public static String CONTACT_INFO_HEADER = "Contact information";
+    public static String COURSE_OPTION_HEADER = "Course options";
     public static String SELENIUM_PAGE = "Learn Selenium page";
     public static String CONTACT_INFO = "Enrollment Email: recruitment@test-software.com";
     public static String HYBRID_PAGE = "Hybrid";
+    public static String IN_PERSON_TEXT = "In Person";
     public static String HOME_PAGE_TEXT = "Certified Software Tester";
     public static String FUNDAM_TEXT = "Fundamentals page";
     public static String INSTRUCTORS_TEXT = "Our Instructors";

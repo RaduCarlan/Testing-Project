@@ -31,6 +31,9 @@ public class Payment_info extends PageObject {
     @FindBy (xpath = "/html/body/div/div/section/div/form/div[4]/div[4]/button[2]")
     private WebElement NextButton3;
 
+    @FindBy (xpath = "/html/body/div/div/section/div/form/div[4]/div[4]/button[1]")
+    private WebElement PrevButtonPayment;
+
 
     public Payment_info (WebDriver driver) { super(driver); }
 
@@ -51,5 +54,7 @@ public class Payment_info extends PageObject {
     public void ClickRandom() { this.ClickRandom.click(); }
 
     public void NextButton3() { this.NextButton3.click(); }
+
+    public void PrevButtonPayment() { this.PrevButtonPayment.click();}
 
 }

@@ -25,6 +25,9 @@ public class Homepage extends PageObject {
     @FindBy(xpath = "/html/body/section[2]/div/div/h3")
     private WebElement HybridText;
 
+    @FindBy(xpath = "/html/body/section[3]/div/div/div[3]/div/div/a")
+    private WebElement ClickInPersonButton;
+
     @FindBy(xpath = "/html/body/footer/div/a/i")
     private WebElement ClickGoTop;
     @FindBy(xpath = "/html/body/footer/div/p")
@@ -109,6 +112,11 @@ public class Homepage extends PageObject {
     public void ClickHybridButton() {
         Utils.scrollToElement(driver, HybridText);
         this.ClickHybridButton.click();
+    }
+
+    public void ClickInPersonButton() {
+        Utils.scrollToElement(driver, HybridText);
+        this.ClickInPersonButton.click();
     }
 
     public void ClickGoTop() {

@@ -34,7 +34,7 @@ public class EnrollmentPageTests {
         Enrollment clickForm = new Enrollment(driver);
         clickForm.nextButton();
         Utils.waitForElementToLoad(2);
-        Assert.assertEquals(clickForm.getTextSign(), Constants.SIGN_UP_HEADER);
+        Assert.assertEquals(clickForm.PersInfoHeader(), Constants.CONTACT_INFO_HEADER);
     }
 
     @Test(testName = "Complete all data on Enrollment pages with correct information")
@@ -103,10 +103,41 @@ public class EnrollmentPageTests {
         driver.get(Utils.BASE_URL);
         NavigateToPage navigation = new NavigateToPage(driver);
         navigation.NavigateToPage(NavigateToPage.Pages.Success);
-        Utils.waitForElementToLoad(3);
+        Utils.waitForElementToLoad(2);
 
         Homepage webForm = new Homepage(driver);
         Assert.assertEquals(webForm.HomePageText(), Constants.HOME_PAGE_TEXT);
+    }
+
+    @Test(testName = "Verification next and return buttons on enrollment pages")
+    public void CheckButtonsEnrollmentPages() {
+        driver.get(Utils.BASE_URL);
+        NavigateToPage navi = new NavigateToPage(driver);
+        navi.NavigateToPage(NavigateToPage.Pages.Contact_Information);
+        Utils.waitForElementToLoad(1);
+        Contact_Info webForm = new Contact_Info(driver);
+        webForm.PrevButtonContact();
+        Utils.waitForElementToLoad(1);
+        Enrollment PersHeader = new Enrollment(driver);
+        Assert.assertEquals(PersHeader.PersInfoHeader(), Constants.PERSONAL_INFO_HEADER);
+
+        NavigateToPage navi2 = new NavigateToPage(driver);
+        navi2.NavigateToPage(NavigateToPage.Pages.Course_Option);
+        Utils.waitForElementToLoad(1);
+        Course_opt webForm2 = new Course_opt(driver);
+        webForm2.PrevButtonCourse();
+        Utils.waitForElementToLoad(1);
+        Enrollment ContHeader = new Enrollment(driver);
+        Assert.assertEquals(ContHeader.ContactInformationHeader(), Constants.CONTACT_INFO_HEADER);
+
+        NavigateToPage navi3 = new NavigateToPage(driver);
+        navi2.NavigateToPage(NavigateToPage.Pages.Payment_Information);
+        Utils.waitForElementToLoad(1);
+        Payment_info webForm3 = new Payment_info(driver);
+        webForm3.PrevButtonPayment();
+        Utils.waitForElementToLoad(1);
+        Enrollment CourseHeader = new Enrollment(driver);
+        Assert.assertEquals(CourseHeader.CourseOptionHeader(), Constants.COURSE_OPTION_HEADER);
     }
 
     @AfterSuite
